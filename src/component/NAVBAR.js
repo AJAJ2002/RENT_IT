@@ -4,6 +4,8 @@ import *as ReactBootstrap from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
+import { Link } from "react-router-dom";
+
 
 
 export default function NAVBAR() {
@@ -19,8 +21,8 @@ export default function NAVBAR() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <ReactBootstrap.Nav.Link to="/action1">Home</ReactBootstrap.Nav.Link>
-              <ReactBootstrap.Nav.Link to="/action2">Link</ReactBootstrap.Nav.Link>
+              <ReactBootstrap.Nav.Link as={Link} to="/home">Home</ReactBootstrap.Nav.Link>
+              <ReactBootstrap.Nav.Link as={Link} to="/link">Link</ReactBootstrap.Nav.Link>
               <ReactBootstrap.NavDropdown title="Link" id="navbarScrollingDropdown">
                 <ReactBootstrap.NavDropdown.Item to="/action3">Action</ReactBootstrap.NavDropdown.Item>
                 <ReactBootstrap.NavDropdown.Item to="/action4">
@@ -31,11 +33,11 @@ export default function NAVBAR() {
                   Something else here
                 </ReactBootstrap.NavDropdown.Item>
               </ReactBootstrap.NavDropdown>
-              <ReactBootstrap.Nav.Link to="/" disabled>
+              <ReactBootstrap.Nav.Link as={Link} to="/" disabled>
                 Link
               </ReactBootstrap.Nav.Link>
             </ReactBootstrap.Nav>
-        
+            <div className="mx-auto">
             <Form className="d-flex">
               <FormControl
                 type="search"
@@ -45,6 +47,10 @@ export default function NAVBAR() {
               />
               <Button variant="outline-success">Search</Button>
             </Form>
+            </div>
+            <ReactBootstrap.Nav.Link as={Link} to="/login" >Login</ReactBootstrap.Nav.Link>
+            <ReactBootstrap.Nav.Link as={Link} to="/signup">Signup</ReactBootstrap.Nav.Link>
+            
           </ReactBootstrap.Navbar.Collapse>
         </ReactBootstrap.Navbar>
       </div>
