@@ -1,0 +1,38 @@
+.slides{
+    height: 30%;
+    width: 100%;
+    text-align: center;
+    margin-top: 3%;
+}
+
+.image{
+    
+    height: 600px;
+    width: 100%;
+}
+span{
+    text-align: center;
+}
+.text{
+    text-align: center;
+    font-size: 30px;
+    padding-top: 30px;
+}
+.cards{
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 60px;
+}
+
+.footer{
+    background-color: cadetblue;
+}
+
+.footer .container{
+    padding-top: 110px;
+    padding-bottom: 120px;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+}

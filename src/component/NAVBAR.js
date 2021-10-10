@@ -2,58 +2,75 @@ import React from "react";
 import "./NAVBAR.css";
 import *as ReactBootstrap from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
+import SearchIcon from '@material-ui/icons/Search'
 import { Link } from "react-router-dom";
-
+import Dropdown from 'react-bootstrap/Dropdown'
+import LOGIN from './LOGIN';
+import  { useState } from 'react';
+import LoginShow from 'react';
+import SIGNUP from "./SIGNUP";
 
 
 export default function NAVBAR() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(true);
+  const handleShow = () => setShow(false);
   return (
     <>
-      <div className='container'>
-        <ReactBootstrap.Navbar bg="light" expand="lg">
-          <ReactBootstrap.Navbar.Brand to="/">RENT-IT</ReactBootstrap.Navbar.Brand>
-          <ReactBootstrap.Navbar.Toggle aria-controls="navbarScroll" />
-          <ReactBootstrap.Navbar.Collapse id="navbarScroll">
-            <ReactBootstrap.Nav
-              className="mr-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
-              <ReactBootstrap.Nav.Link as={Link} to="/home">Home</ReactBootstrap.Nav.Link>
-              <ReactBootstrap.Nav.Link as={Link} to="/link">Link</ReactBootstrap.Nav.Link>
-              <ReactBootstrap.NavDropdown title="Link" id="navbarScrollingDropdown">
-                <ReactBootstrap.NavDropdown.Item to="/action3">Action</ReactBootstrap.NavDropdown.Item>
-                <ReactBootstrap.NavDropdown.Item to="/action4">
-                  Another action
-                </ReactBootstrap.NavDropdown.Item>
-                <ReactBootstrap.NavDropdown.Divider />
-                <ReactBootstrap.NavDropdown.Item to="/action5">
-                  Something else here
-                </ReactBootstrap.NavDropdown.Item>
-              </ReactBootstrap.NavDropdown>
-              <ReactBootstrap.Nav.Link as={Link} to="/" disabled>
-                Link
-              </ReactBootstrap.Nav.Link>
-            </ReactBootstrap.Nav>
-            <div className="mx-auto">
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="mr-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
-            </div>
-            <ReactBootstrap.Nav.Link as={Link} to="/login" >Login</ReactBootstrap.Nav.Link>
-            <ReactBootstrap.Nav.Link as={Link} to="/signup">Signup</ReactBootstrap.Nav.Link>
+
+      <ReactBootstrap.Navbar className="navbar" collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <ReactBootstrap.Navbar.Brand  as={Link} to="/rentit">RENT-IT</ReactBootstrap.Navbar.Brand>
+        <ReactBootstrap.Navbar.Toggle aria-controls="navbarScroll" />
+        <ReactBootstrap.Navbar.Collapse id="navbarScroll">
+          <ReactBootstrap.Nav
+            className="mr-auto my-2 my-lg-0"
+            style={{ maxHeight: "100px" }}
+            navbarScroll
+          >
             
-          </ReactBootstrap.Navbar.Collapse>
-        </ReactBootstrap.Navbar>
-      </div>
+            <ReactBootstrap.Nav.Link as={Link} to="/buy">BUY</ReactBootstrap.Nav.Link>
+            <ReactBootstrap.Nav.Link as={Link} to="/rent">RENT</ReactBootstrap.Nav.Link>
+            <ReactBootstrap.Nav.Link as={Link} to="/sell">SELL</ReactBootstrap.Nav.Link>
+          </ReactBootstrap.Nav>
+          
+          <div className="search">
+          
+          <ReactBootstrap.Nav.Link as={Link} to="/search" className="searchBar">
+            <ReactBootstrap.InputGroup className="mb-2"> 
+            <Dropdown   className="all" >
+                <Dropdown.Toggle  variant="success" id="dropdown-basic">
+                  ALL
+                </Dropdown.Toggle> 
+                <Dropdown.Menu>
+                  <Dropdown.Item to="/home">Action</Dropdown.Item>
+                  <Dropdown.Item to="/home">Another action</Dropdown.Item>
+                  <Dropdown.Item to="/home">Something else</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown> 
+              <ReactBootstrap.FormControl id="inlineFormInputGroup" placeholder="Search" />
+              <ReactBootstrap.InputGroup.Text><SearchIcon /></ReactBootstrap.InputGroup.Text>
+            </ReactBootstrap.InputGroup>
+          </ReactBootstrap.Nav.Link>
+          </div>
+          <div className="log ml-auto">
+          <ReactBootstrap.Nav.Link as={Link} to="/login" ><Button variant="light" size="sm" onClick={handleShow}  >Login</Button>
+          
+          <LOGIN
+            show={show} 
+            onHide={() => LoginShow(false)}
+          />
+          </ReactBootstrap.Nav.Link>
+          <ReactBootstrap.Nav.Link as={Link} to="/signup"><Button variant="dark" size="sm" onClick={handleShow}  >Signup</Button>
+          <SIGNUP
+            show={show} 
+            onHide={() => LoginShow(false)}
+          />
+          </ReactBootstrap.Nav.Link>
+          </div>
+        </ReactBootstrap.Navbar.Collapse>
+      </ReactBootstrap.Navbar>
+ 
     </>
   );
 }

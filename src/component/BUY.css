@@ -1,0 +1,28 @@
+.buy{
+    margin-top: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+}
+img{
+    height: 400px;
+    width: 400px;
+}
+
+h1{
+    padding-bottom: 50px;
+}
+
+.heading{
+    font-size: 40px;
+    padding-bottom: 30px;
+}
+
+.cards{
+    cursor: pointer;
+}
+
+.c:hover{
+    height: 400px;
+    background: cornflowerblue;
+}
