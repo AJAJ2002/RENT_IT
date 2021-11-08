@@ -1,12 +1,9 @@
+
 import React, { Component } from "react";
 import "./LOGIN.css";
-import {Button, Modal} from 'react-bootstrap';
-import show from 'react';
-import handleClose from 'react';
-
 
 const emailRegex = RegExp(
-  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+  /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
 );
 
 const formValid = ({ formErrors, ...rest }) => {
@@ -30,11 +27,15 @@ class LOGIN extends Component {
     super(props);
 
     this.state = {
+     
       email: null,
       password: null,
+      
       formErrors: {
+        
         email: "",
-        password: "",
+        password: ""
+        
       }
     };
   }
@@ -45,8 +46,10 @@ class LOGIN extends Component {
     if (formValid(this.state)) {
       console.log(`
         --SUBMITTING--
+        
         Email: ${this.state.email}
         Password: ${this.state.password}
+        
       `);
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
@@ -59,6 +62,8 @@ class LOGIN extends Component {
     let formErrors = { ...this.state.formErrors };
 
     switch (name) {
+      
+      
       case "email":
         formErrors.email = emailRegex.test(value)
           ? ""
@@ -67,7 +72,8 @@ class LOGIN extends Component {
       case "password":
         formErrors.password =
           value.length < 6 ? "minimum 6 characaters required" : "";
-        break;  
+        break;
+        
       default:
   
     }
@@ -79,16 +85,16 @@ class LOGIN extends Component {
     const { formErrors } = this.state;
 
     return (
-      <>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-          <Modal.Title>Login Account</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+      <div className="sin" >
+       
+      <div className="wrapper">
         
+        <div className="form-wrapper">
           <h1>Login Account</h1>
           <form onSubmit={this.handleSubmit} noValidate>
- 
+           
+              
+            
             <div className="email">
               <label htmlFor="email">Email</label>
               <input
@@ -116,29 +122,24 @@ class LOGIN extends Component {
               {formErrors.password.length > 0 && (
                 <span className="errorMessage">{formErrors.password}</span>
               )}
-            </div>         
-            <div className="loginAccount">
+            </div>
+                      
+            <div className="createAccount">
               <button type="submit">LOGIN</button>
+              <small>Already Have an Account?</small>
             </div>
             <div className="socialAccount">
-            <i className="zmdi zmdi-facebook zmdi-hc-2x"></i>
-            <i className="zmdi zmdi-instagram zmdi-hc-2x"></i>
-            <i className="zmdi zmdi-whatsapp zmdi-hc-2x"></i>
-            <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
+             <i className="zmdi zmdi-facebook zmdi-hc-2x"></i>
+             <i className="zmdi zmdi-instagram zmdi-hc-2x"></i>
+             <i className="zmdi zmdi-whatsapp zmdi-hc-2x"></i>
+             <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
             </div>
           </form>
-      
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-      </>
+        </div>
+      </div>
+      </div>
     );
   }
 }
 
 export default LOGIN;
-

@@ -34,9 +34,9 @@ function HOME() {
 
         <div className="text">
           <span>
-            Whether you’re buying, selling or renting,
+            <h2>Whether you’re buying, selling or renting,
             <br />
-            we can help you move forward.
+            we can help you move forward.</h2>
           </span>
         </div>
 
@@ -97,7 +97,7 @@ function HOME() {
         
         
         {/* footer */}
-        <div className="footer">
+        {/* <div className="footer">
         <div className="container">
             <nav className="footer-nav">
                 <div className="footer-nav-list is-active">
@@ -136,7 +136,7 @@ function HOME() {
             </nav>
 
         </div> 
-        </div>
+        </div> */}
       </>
     );
 }

@@ -8,9 +8,6 @@
     font-size: 1vw;
     width: 28vw;
   }
-  .navbar{
-      height: 7%;
-  }
   .log{
       margin-left: auto;
   }
@@ -32,3 +29,10 @@
     z-index: 6;
 }
 
+.login{
+    margin-right: 20px;
+}
+
+.signup{
+    margin-right: 15px;
+}

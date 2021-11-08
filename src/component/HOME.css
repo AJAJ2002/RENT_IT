@@ -9,6 +9,7 @@
     
     height: 600px;
     width: 100%;
+    
 }
 span{
     text-align: center;
@@ -23,6 +24,7 @@ span{
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 60px;
+    
 }
 
 .footer{
@@ -36,3 +38,4 @@ span{
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
 }
+

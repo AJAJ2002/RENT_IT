@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import "./SIGNUP.css";
-import {Button, Modal} from 'react-bootstrap';
-import show from 'react';
-import handleClose from 'react';
-import setShow from 'react';
 
 const emailRegex = RegExp(
-  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+  /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
 );
 
 const formValid = ({ formErrors, ...rest }) => {
@@ -99,15 +95,10 @@ class SIGNUP extends Component {
   render() {
     const { formErrors } = this.state;
 
-     
     return (
-      <>
-      <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-          <Modal.Title>Login Account</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-   
+      <div className="sin">
+      <div className="wrapper">
+        <div className="form-wrapper">
           <h1>Create Account</h1>
           <form onSubmit={this.handleSubmit} noValidate>
             <div className="firstName">
@@ -191,15 +182,9 @@ class SIGNUP extends Component {
              <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
             </div>
           </form>
-      
-      </Modal.Body>
-        <Modal.Footer>
-          <Button  variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-      </>
+        </div>
+      </div>
+      </div>
     );
   }
 }
